@@ -4,11 +4,6 @@ import express from 'express';
 const app = express();
 
 app.get('/topic/:topic', async (req, res) => {
-    if (!req.params.topic) {
-        res.status(404).send('Topic not found!!!');
-        return;
-    }
-
     const response = await fetch(`https://en.wikipedia.org/wiki/${req.params.topic}`);
     const data = await response.text();
 
